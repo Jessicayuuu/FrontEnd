@@ -1,0 +1,119 @@
+@charset "UTF-8";
+* {
+  font-family: "微軟正黑體";
+}
+
+* h1, * h2, * h3, * h4, * h5, * h6, * .h1, * .h2, * .h3, * .h4, * .h5, * .h6 {
+  font-weight: bold;
+}
+
+header.jumbotron {
+  text-align: center;
+  background-image: url("https://www.nintendo.tw/hardware/switch/feature/img/08-local-galleryPhoto/gallery-pic01.jpg");
+  background-size: cover;
+  background-position: center center;
+  padding: 170px;
+  color: white;
+}
+
+section.intro {
+  background-color: #8EC5CA;
+}
+
+section {
+  text-align: center;
+  padding: 80px 0px;
+}
+
+section .section-heading {
+  font-size: 36px;
+  margin-top: 0px;
+}
+
+section .section-subheading {
+  font-size: 16px;
+}
+
+.col-switch {
+  padding: 90px;
+}
+
+.col-switch img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+section.story {
+  background-color: #EEE;
+  padding: 0px;
+}
+
+section.story .container {
+  padding: 70px;
+}
+
+section.story .col-md-6 {
+  padding: 20px;
+  margin-top: 30px;
+}
+
+section.story .icon-switch {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+section.pictures {
+  padding: 0px;
+  color: white;
+}
+
+section.pictures .col-md-6 {
+  padding: 150px;
+  cursor: pointer;
+}
+
+section.pictures .col-md-6:hover p {
+  opacity: 0.7;
+}
+
+section.pictures .col-md-6:hover::before {
+  -webkit-filter: brightness(0.5);
+          filter: brightness(0.5);
+  background-size: auto;
+}
+
+section.pictures .col-md-6::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-transition: 1s;
+  transition: 1s;
+  background-position: center center;
+}
+
+section.pictures p {
+  opacity: 0.4;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+section.pictures .pic1:before {
+  background-image: url("https://www.nintendo.tw/switch/animal_crossing_new_horizons/set/img/img-main-07.jpg");
+  background-size: cover;
+}
+
+section.pictures .pic2:before {
+  background-image: url("https://www.nintendo.tw/hardware/switch/lite/img/01-hero/local-hero-img-03.jpg");
+  background-size: cover;
+}
+
+section.ask {
+  background-color: #A4D7CA;
+  color: white;
+}
+/*# sourceMappingURL=bootstrap.css.map */

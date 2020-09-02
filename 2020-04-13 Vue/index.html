@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="Vuebooks.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>使用Vue.js計算呈現資訊/v-if</h1>
+        <h3>實戰博客來排行榜資料轉換html
+            <span>
+                <img class="bkl_icon" src="http://pk.ixpanel.com/images/pk/201108/0824/BOOKS.gif" alt="">
+                <a target="_blank" href="https://www.books.com.tw/web/sys_tdrntb/books/?loc=subject_003">(連結網址)</a>
+            </span>
+        </h3>
+        <br>
+        <label >詳細模式
+            <input type="checkbox" v-model="mode_detail"/>     
+        </label>
+        <br>
+
+        <label>優惠價</label>
+        <span v-for="(book,index) in books">
+            <label>{{index}}
+            <input type="checkbox" v-model="book.is_discount"/>
+            </label>
+        </span>
+
+        <label>小呈現
+            <input type="radio" v-model="mode_size" value="small"/>
+        </label>
+
+        <label>大呈現
+            <input type="radio" v-model="mode_size" value="big"/>
+        </label>
+        <h5>{{mode_size}}</h5>
+
+
+        <br>
+        <div class="book" v-for="book in books" :class="[mode_detail?'detail':'',mode_size]">
+            <img :src="book.img"/>
+            <div class="infos">
+                <h2 class="name" v-if="!mode_detail"><a target="_blank" :href="book.link_book">{{book.name.substring(0,18)}}</a></h2>
+                <h2 class="name" v-if="mode_detail"><a target="_blank" :href="book.link_book">{{book.name}}</a></h2>
+                <h4 class="author">作者:<a target="_blank" :href="book.link_author">{{book.author}}</a></h4>
+                <h4 class="publish" v-if="mode_detail">出版社:{{book.publish_house}}</h4>
+                <h4 class="price" v-if="book.is_discount">優惠價:
+                    <span class="red">{{book.discount*100}}</span>
+                    <span>折</span>
+                    <span class="red">{{parseInt(book.price*book.discount)}}</span>
+                    <span>元</span>
+                </h4>
+                <h4 class="price" v-if="!book.is_discount">價錢:
+                    <span class="red">{{book.price}}</span>
+                    <span>元</span>
+                </h4>
+                <h4 class="publish" v-if="mode_detail">出版日期:{{book.date}}</h4>
+            </div>         
+        </div>
+    </div>
+    
+
+
+
+    <script>
+        var bookdates =[
+            {
+                name: "後來的你，好嗎？",
+                author: "Peter Su",
+                publish_house: "時報出版",
+                img: "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/085/45/0010854533_b_01.jpg&v=5e8f0759&w=348&h=348",
+                price: 380,
+                is_discount: true,
+                discount: 0.79,
+                link_book: "https://www.books.com.tw/products/0010854533?loc=P_0001_001",
+                link_author: "https://search.books.com.tw/search/query/key/Peter+Su/adv_author/1/",
+                date: "2020/04/21"
+            },
+
+            {
+                name: "這世界很煩，但你要很可愛",
+                author: "萬特特",
+                publish_house: "幸福文化",
+                img: "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/084/50/0010845024.jpg&v=5e033a3d&w=348&h=348",
+                price: 330,
+                is_discount: true,
+                discount: 0.79,
+                link_book: "https://www.books.com.tw/products/0010845024?loc=P_0001_003",
+                link_author: "https://search.books.com.tw/search/query/key/%E8%90%AC%E7%89%B9%E7%89%B9++%E7%AD%89/adv_author/1/",
+                date: "2020/01/08"
+            },
+
+            {
+                name: "我的存在本來就值得青睞",
+                author: "吳姍儒",
+                publish_house: "三采",
+                img: "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/084/76/0010847694.jpg&v=5e203b2b&w=348&h=348",
+                price: 380,
+                is_discount: false,
+                discount: 0.79,
+                link_book: "https://www.books.com.tw/products/0010847694?loc=P_0001_004",
+                link_author: "https://search.books.com.tw/search/query/key/%E5%90%B3%E5%A7%8D%E5%84%92/adv_author/1/",
+                date: "2020/02/07"
+            },
+
+            {
+                name: "原子習慣：細微改變帶來巨大成就的實證法則",
+                author: "James Clear",
+                publish_house: "方智",
+                img: "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/082/25/0010822522_bc_01.jpg&v=5cdaa6df&w=348&h=348",
+                price: 330,
+                is_discount: true,
+                discount: 0.79,
+                link_book: "https://www.books.com.tw/products/0010822522?loc=P_0001_008",
+                link_author: "https://search.books.com.tw/search/query/key/James+Clear/adv_author/1/",
+                date: "2019/06/01"
+            },
+
+            {
+                name: "以我之名：寫給獨一無二的自己",
+                author: "張曼娟",
+                publish_house: "天下文化",
+                img: "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/085/29/0010852959.jpg&v=5e70a6c7&w=348&h=348",
+                price: 360,
+                is_discount: true,
+                discount: 0.79,
+                link_book: "https://www.books.com.tw/products/0010852959?loc=P_0001_011",
+                link_author: "https://search.books.com.tw/search/query/key/%E5%BC%B5%E6%9B%BC%E5%A8%9F/adv_author/1/",
+                date: "2020/03/31"
+            },
+
+            {
+                name: "當你又忙又美，何懼患得患失",
+                author: "梁爽",
+                publish_house: "方智",
+                img: "https://im2.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/084/37/0010843716_bc_01.jpg&v=5df3765a&w=348&h=348",
+                price: 360,
+                is_discount: false,
+                discount: 0.79,
+                link_book: "https://www.books.com.tw/products/0010843716?loc=P_0003_031",
+                link_author: "https://search.books.com.tw/search/query/key/%E6%A2%81%E7%88%BD/adv_author/1/",
+                date: "2020/01/01"
+            },
+
+            {
+                name: "進擊的巨人 29",
+                author: " 諫山 創",
+                publish_house: "東立",
+                img: "https://im1.book.com.tw/image/getImage?i=https://www.books.com.tw/img/001/084/53/0010845314.jpg&v=5e05dd49&w=348&h=348",
+                price: 100,
+                is_discount: true,
+                discount: 0.95,
+                link_book: "https://www.books.com.tw/products/0010845314?sloc=main",
+                link_author: "https://search.books.com.tw/search/query/key/%E8%AB%AB%E5%B1%B1+%E5%89%B5/adv_author/1/",
+                date: "2020/01/17"
+            },
+        ];
+
+        var vm=new Vue({
+            el: "#app",
+            data: {
+                mode_detail: false,
+                mode_size: "big",
+                books: bookdates
+            }
+        });
+    </script>
+</body>
+</html>

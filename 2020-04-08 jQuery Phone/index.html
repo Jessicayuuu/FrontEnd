@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./Phone.css">
+    
+    <title>Document</title>
+</head>
+<body>
+    <div class="phone">
+        <div class="top">
+            <div class="camera"></div>
+        </div>
+        <div class="screen">
+            <div class="pages">
+                <div class="page page1">
+                    <h2>Orange</h2>
+                    <h1>橘</h1>
+                    <div class="orange"></div>
+                </div>
+                <div class="page page2">
+                    <h2>Page 2</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure, ad.</p>
+                </div>
+                <div class="page page3">
+                    <h2>Page 3</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nisi cupiditate vel natus, voluptates provident voluptatum quod nihil minima ipsa voluptas.</p>
+                </div>
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="button">□</div>
+        </div>
+    </div>
+    <h3 class="ststus">The "Best" iphone we have ever made!</h3>
+    <h2 class="phonename">iphone5s</h2>
+    <div class="buttons">
+        <button class="i5">iphone5</button>
+        <button class="i5s">iphone5s</button>
+        <button class="i6">iphone6</button>
+        <button class="i6s">iphone6+</button>
+        <button class="wiggle">wiggle</button>
+        <button class="turn">turn around</button>
+    </div>
+
+
+<script>
+    var button_audio=new Audio("http://www.monoame.com/awi_class/ballsound/click14.wav");
+   
+    $(".i5").click(function(){
+        $(".phone").css("width","");
+        $(".screen").css("height","");
+        $(".phonename").text($(this).text());
+        button_audio.play();
+    });
+
+    $(".i5s").click(function(){
+        $(".phone").css("width","250px");
+        $(".screen").css("height","420px");
+        $(".phonename").text($(this).text());
+        button_audio.play();
+    });
+
+    $(".i6").click(function(){
+        $(".phone").css("width","270px");
+        $(".screen").css("height","440px");
+        $(".phonename").text($(this).text());
+        button_audio.play();
+    });
+
+    $(".i6s").click(function(){
+        $(".phone").css("width","300px");
+        $(".screen").css("height","480px");
+        $(".phonename").text($(this).text());
+        button_audio.play();
+    });
+
+    var screen_audio=new Audio("http://www.monoame.com/awi_class/ballsound/click18.wav");
+    var page=0;
+    $(".screen").click(function(){
+        page+=1;
+        if (page>2){
+            page=0;
+        }
+        $(".pages").css("left","-"+page*100+"%");
+        screen_audio.play();
+
+    });
+
+    var home_audio=new Audio("http://www.monoame.com/awi_class/ballsound/click23.wav");
+    $(".button").click(function(){
+        page=0;
+        $(".pages").css("left","-"+page*100+"%");
+        home_audio.play();
+    });
+
+    $(".turn").click(function(){
+        $(".phone").css("transform","rotate(360deg)");
+
+    });
+
+
+
+    var wiggle_audio=new Audio("http://www.monoame.com/awi_class/ballsound/phonevi.mp3");
+    $(".wiggle").click(function(){
+        wiggletime=0;
+        wiggle_audio.play();
+
+    });
+
+    var wiggletime=21;
+    setInterval(function(){
+        if (wiggletime<20){
+        wiggletime+=1;
+
+            if (wiggletime%2==0){
+                $(".phone").css("left","-30px");
+            }else{
+                $(".phone").css("left","30px");
+            }
+
+        if (wiggletime==21){
+            $(".phone").css("left","0px");
+            }
+        }
+
+    },60);
+
+    
+</script>  
+</body>
+</html>

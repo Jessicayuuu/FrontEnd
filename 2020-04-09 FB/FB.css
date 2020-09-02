@@ -1,0 +1,140 @@
+@charset "UTF-8";
+* {
+  vertical-align: middle;
+  position: relative;
+  font-family: "微軟正黑體";
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #E9EBEE;
+}
+
+.container {
+  max-width: 1024px;
+  margin: auto;
+}
+
+.topbar {
+  height: 50px;
+  background-color: #3B5998;
+}
+
+.topbar .icon {
+  height: 30px;
+  margin: 10px;
+}
+
+.topbar input {
+  height: 30px;
+  margin: 10px;
+  margin-left: 0px;
+  width: 300px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border: none;
+}
+
+.cover {
+  height: 330px;
+  background-image: url("https://cdn.unwire.hk/wp-content/uploads/2018/03/2-1.jpg");
+  background-position: center center;
+}
+
+.midbar {
+  background-color: #fff;
+  height: 50px;
+}
+
+.midbar .personimg {
+  width: 150px;
+  height: 150px;
+  background-image: url("https://scontent.ftpe8-4.fna.fbcdn.net/v/t1.0-9/p960x960/32679696_441329639645969_2700539633153867776_o.jpg?_nc_cat=102&_nc_sid=85a577&_nc_oc=AQkebZvDMV1ddXK0PZV7rveSbshLCWVl7069cXoPtwCOwBz28ENUT05XXg2mptARrWzUkXrjXclBQqEWRe9Uzs5r&_nc_ht=scontent.ftpe8-4.fna&_nc_tp=6&oh=b04c48e904c5e8d621d2c1606b152307&oe=5EB5A197");
+  background-size: 100% auto;
+  border: solid 4px white;
+  position: absolute;
+  top: -130px;
+  left: 20px;
+}
+
+.midbar .personimg .names {
+  position: absolute;
+  right: -150px;
+  color: white;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+
+.midbar .personimg .names h2, .midbar .personimg .names h5 {
+  margin: 0;
+}
+
+.midbar .personimg .names h2 {
+  font-size: 32px;
+}
+
+.midbar .personimg .names h5 {
+  font-size: 16px;
+}
+
+.bottombar {
+  background-color: #fff;
+  width: 35%;
+  min-width: 300px;
+  padding: 20px;
+  font-size: 14px;
+  line-height: 25px;
+  margin-top: 10px;
+}
+
+.bottombar i {
+  width: 20px;
+}
+
+@media screen and (max-width: 880px) {
+  .topbar {
+    height: 60px;
+  }
+  .topbar .icon {
+    height: 40px;
+  }
+  .topbar input {
+    height: 30px;
+    width: calc( 100% - 40px - 60px);
+    background-color: #2d4373;
+    color: white;
+  }
+  .midbar {
+    height: 120px;
+  }
+  .midbar .personimg {
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+  .midbar .personimg .names {
+    right: initial;
+    left: 50%;
+    top: 110%;
+    color: #555;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    white-space: nowrap;
+  }
+  .bottombar {
+    margin: 0;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+  .bottombar p {
+    border-top: solid 1px #bbbbbb;
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 13px;
+  }
+}
+/*# sourceMappingURL=FB.css.map */

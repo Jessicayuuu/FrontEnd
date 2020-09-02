@@ -1,0 +1,142 @@
+*
+    //border: solid 1px black
+    position: relative
+    font-family: "微軟正黑體"
+    vertical-align: top
+
+html,body
+    width: 100%
+    height: 100%
+    margin: 0
+    padding: 0
+    background-color: #222222
+    display: flex
+    justify-content: center
+    align-items: center
+    flex-direction: column
+
+.phone
+    width: 250px
+    padding: 10px
+    background-color: #f3f3f3
+    border-radius: 10px
+    transition: 0.5s
+    left: 0px
+    
+
+.top
+    height: 40px
+    .camera
+        width: 10px
+        height: 10px
+        border-radius: 100%
+        background-color: #333333
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+
+.screen
+    height: 350px
+    transition: 0.5s
+    overflow: hidden
+    cursor: pointer
+    .pages
+        background-color: #333
+        width: 100%
+        height: 100%
+        white-space: nowrap
+        font-size: 0px
+        transition: 0.5s
+        left: 0px
+        .page
+            font-size: initial
+            display: inline-block
+            background-color: #333
+            width: 100%
+            height: 100%
+            padding: 10px
+            box-sizing: border-box
+            position: relative
+            white-space: normal
+            color: #eee
+            font-size: 12px
+            p
+                margin-top: 30px
+            h2
+                color: white
+                font-size: 20px
+                margin: 0
+            &:before
+                position: absolute
+                left: 0px
+                top: 0px
+                content: ""
+                display: block
+                background-color: #ffab36
+                width: 100%
+                height: 60px
+            &:after
+                position: absolute
+                left: 0px
+                bottom: 0px
+                content: ""
+                display: block
+                background-color: #ffab36
+                width: 100%
+                height: 20px
+        .page1
+            background-color: #ffab36
+            color: white
+            h2
+                font-size: 20px
+                margin-bottom: 0px
+            h1
+                font-size: 30px
+                margin: 0px
+            .orange
+                width: 300px
+                height: 300px
+                background-color: #ff9e17
+                border-radius: 100%
+.bottom
+    height: 60px
+    .button
+        width: 40px
+        height: 40px
+        border-radius: 100%
+        top: 50%
+        left: 50%
+        transform: translate(-50%,-50%)
+        text-align: center
+        font-size: 25px
+        color: rgba(black,0.4)
+        border: solid 1px rgba(black,0.2)
+        cursor: pointer
+        &:hover
+            background-color: #ddd
+
+.ststus,.phonename
+    color: white
+    margin: 0
+
+.ststus
+    margin-top: 20px
+    font-size: 15px
+
+.phonename
+    margin: 10px
+
+
+.buttons
+    margin-top: 20px
+    button
+        background-color: transparent
+        border: solid 1px rgba(#fff,0.2)
+        color: white
+        padding: 5px 13px
+        border-radius: 5px
+        cursor: pointer
+        &:hover
+            background-color: #fff
+            color: #333

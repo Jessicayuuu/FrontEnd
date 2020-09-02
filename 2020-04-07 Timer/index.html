@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Timer.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="count">
+        <div class="minus">-</div>
+        <div class="number">12</div>
+        <div class="add">+</div>
+        <div class="text">警示訊息</div>
+        <div class="fill_stock">點此連絡廠商預約存貨</div>
+    </div>
+
+
+
+<script>
+    var number= 12;
+
+    function click(number_var){
+        number=number+number_var;
+            $(".number").text(number);
+
+    }
+
+
+
+
+    function check(){
+
+        if(number<10){
+                $(".text").text("要賣完了 要買要快!!!")
+                $(".text").css("border-color","#ff6505")
+                $(".text").css("color","#ff6505")
+                $(".fill_stock").addClass("fill_stock_open")
+            }else if (number<20){
+                $(".text").text("數量極少!!!")
+                $(".text").css("border-color","#ffcd05")
+                $(".text").css("color","#ffcd05")
+                $(".fill_stock").removeClass("fill_stock_open")
+            }else{
+                $(".text").text("帶我回家QQ")
+                $(".text").css("border-color","#ffffff")
+                $(".text").css("color","#ffffff")
+            }
+    }
+
+
+
+
+    $(".minus").click(
+        function(){
+           click(-1);
+
+           check();
+
+        }
+    );
+
+    $(".add").click(
+        function(){
+            click(1);
+
+            check();
+
+        }
+    );
+
+    var waittime=0;
+    $(".fill_stock").click(
+        function(){
+            $(".fill_stock").text("聯絡中.....")
+            setInterval(
+                function(){
+                    waittime+=1;
+                    $(".fill_stock").text("聯絡中....."+waittime);
+                }
+            
+            
+            ,1000)
+
+        }
+    )
+</script>
+</body>
+</html>

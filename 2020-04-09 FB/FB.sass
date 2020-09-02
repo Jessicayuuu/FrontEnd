@@ -1,0 +1,113 @@
+$content_max_width: 1024px
+
+$color_lightblue: #E9EBEE
+$color_blue: #3B5998
+$color_white: #fff
+$color_black: #555
+
+$break_width: 880px
+
+*
+    // border: solid 1px black
+    vertical-align: middle
+    position: relative
+    font-family: "微軟正黑體"
+
+html,body
+    margin: 0
+    padding: 0
+    background-color: $color_lightblue
+.container
+    max-width: 1024px
+    margin: auto
+.topbar
+    height: 50px
+    background-color: $color_blue
+    .icon
+        height: 30px
+        margin: 10px
+    input
+        height: 30px
+        margin: 10px
+        margin-left: 0px
+        width: 300px
+        border-radius: 5px
+        padding-left: 10px
+        border: none
+.cover
+    height: 330px
+    background-image: url("https://cdn.unwire.hk/wp-content/uploads/2018/03/2-1.jpg")
+    background-position: center center
+.midbar
+    background-color: $color_white
+    height: 50px
+    .personimg
+        width: 150px
+        height: 150px
+        background-image: url("https://scontent.ftpe8-4.fna.fbcdn.net/v/t1.0-9/p960x960/32679696_441329639645969_2700539633153867776_o.jpg?_nc_cat=102&_nc_sid=85a577&_nc_oc=AQkebZvDMV1ddXK0PZV7rveSbshLCWVl7069cXoPtwCOwBz28ENUT05XXg2mptARrWzUkXrjXclBQqEWRe9Uzs5r&_nc_ht=scontent.ftpe8-4.fna&_nc_tp=6&oh=b04c48e904c5e8d621d2c1606b152307&oe=5EB5A197")
+        background-size: 100% auto
+        border: solid 4px white
+        position: absolute
+        top: -130px
+        left: 20px
+        .names
+            position: absolute
+            right: -150px
+            color: white
+            top: 50%
+            transform: translateY(-50%)
+            h2,h5
+                margin: 0
+            h2
+                font-size: 32px
+            h5
+                font-size: 16px
+            
+
+.bottombar
+    // height: 200px
+    background-color: $color_white
+    width: 35%
+    min-width: 300px
+    padding: 20px
+    font-size: 14px
+    line-height: 25px
+    margin-top: 10px
+    i
+        width: 20px
+
+@media screen and ( max-width: $break_width )
+    .topbar
+        height: 60px
+        .icon
+            height: 40px
+        input
+            height: 30px
+            width: calc( 100% - 40px - 60px )
+            background-color: darken($color_blue,10)
+            color: white
+    .midbar
+        height: 120px
+        .personimg
+            left: 50%
+            transform: translateX(-50%)
+            .names
+                right: initial
+                left: 50%
+                top: 110%
+                color: $color_black
+                transform: translateX(-50%)
+                white-space: nowrap
+    .bottombar
+        margin: 0
+        width: 100%
+        box-sizing: border-box
+        p
+            border-top: solid 1px lighten($color_black,40)
+            padding-top: 10px
+            padding-left: 20px
+            padding-right: 20px
+            font-size: 13px
+
+    
+

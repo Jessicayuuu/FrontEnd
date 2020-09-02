@@ -1,0 +1,197 @@
+@charset "UTF-8";
+* {
+  position: relative;
+  font-family: "微軟正黑體";
+  vertical-align: top;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #222222;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.phone {
+  width: 250px;
+  padding: 10px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  left: 0px;
+}
+
+.top {
+  height: 40px;
+}
+
+.top .camera {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  background-color: #333333;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.screen {
+  height: 350px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.screen .pages {
+  background-color: #333;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  font-size: 0px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  left: 0px;
+}
+
+.screen .pages .page {
+  font-size: initial;
+  display: inline-block;
+  background-color: #333;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  white-space: normal;
+  color: #eee;
+  font-size: 12px;
+}
+
+.screen .pages .page p {
+  margin-top: 30px;
+}
+
+.screen .pages .page h2 {
+  color: white;
+  font-size: 20px;
+  margin: 0;
+}
+
+.screen .pages .page:before {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  content: "";
+  display: block;
+  background-color: #ffab36;
+  width: 100%;
+  height: 60px;
+}
+
+.screen .pages .page:after {
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  content: "";
+  display: block;
+  background-color: #ffab36;
+  width: 100%;
+  height: 20px;
+}
+
+.screen .pages .page1 {
+  background-color: #ffab36;
+  color: white;
+}
+
+.screen .pages .page1 h2 {
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.screen .pages .page1 h1 {
+  font-size: 30px;
+  margin: 0px;
+}
+
+.screen .pages .page1 .orange {
+  width: 300px;
+  height: 300px;
+  background-color: #ff9e17;
+  border-radius: 100%;
+}
+
+.bottom {
+  height: 60px;
+}
+
+.bottom .button {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 25px;
+  color: rgba(0, 0, 0, 0.4);
+  border: solid 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.bottom .button:hover {
+  background-color: #ddd;
+}
+
+.ststus, .phonename {
+  color: white;
+  margin: 0;
+}
+
+.ststus {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.phonename {
+  margin: 10px;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.buttons button {
+  background-color: transparent;
+  border: solid 1px rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 5px 13px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #fff;
+  color: #333;
+}
+/*# sourceMappingURL=Phone.css.map */

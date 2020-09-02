@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./Buylist.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="buylist">
+        <h1>MyBuylist 購物清單</h1>
+        <div class="buyitem control_panel">
+            <label for="">產品名</label>
+            <input id="input_name" type="text" placeholder="名稱...">
+            <label for="">價錢</label>
+            <input id="input_price" type="text" placeholder="價錢...">
+            <span class="addbtn">+新增</span>
+        </div>
+        <div id="item_list">
+            <!-- <li class="buy_item">1.吹風機
+                <div class="price">100</div>
+                <div class="del_btn">X</div>
+            </li>
+            <li class="buy_item">1.吹風機
+                <div class="price">100</div>
+                <div class="del_btn">X</div>
+            </li>
+            <li class="buy_item">1.吹風機
+                <div class="price">100</div>
+                <div class="del_btn">X</div>
+            </li> -->
+            <!-- <li class="buy_item total">總價
+                <div class="total_price">500</div>
+            </li> -->
+        </div>
+    </div>
+<script>
+    var itemurl="https://awiclass.monoame.com/api/command.php?type=get&name=itemdata";
+    var shoplist={};
+    shoplist.name="MyBuylist 購物清單";
+    shoplist.time="2020/04/09";
+    shoplist.list=[
+        {name: "吹風機",price: 300},
+        {name: "麥克風",price: 9000},
+        {name: "筆記型電腦",price: 54555},
+        {name: "Iphone 9",price: 32000},
+        {name: "神奇海螺",price: 5000},
+    ];
+
+    $.ajax({
+        url: itemurl,
+        success: function(res){
+            console.log(JSON.parse(res));
+            shoplist.list=JSON.parse(res);
+            showlist();
+        }
+
+    }
+    )
+    var item_html="<li id={{id}} class='buy_item'>{{number}}.{{item}}<div class='price'>{{price}}</div><div id={{del_id}} data-del-id='{{delid}}' class='del_btn'>X</div></li>";
+
+    var total_html="<li class='buy_item total'>總價<div class='total_price'>{{price}}</div></li>";
+
+
+    function showlist(){
+        $("#item_list").html("");
+        var total_price=0
+        for (var i=0; i<shoplist.list.length; i++){
+            var item=shoplist.list[i];
+            var item_id="buyitem_"+i;
+            var del_item_id="del_buyitem_"+i;
+
+
+            total_price+=parseInt(item.price);
+            var current_item_html=
+                item_html.replace("{{number}}",i+1)
+                        .replace("{{item}}",item.name)
+                        .replace("{{id}}",item_id)
+                        .replace("{{del_id}}",del_item_id)
+                        .replace("{{price}}",item.price)
+                        .replace("{{delid}}",i)
+
+            $("#item_list").append(current_item_html);
+            $("#"+del_item_id).click(
+                function(){
+                    remove_item($(this).attr("data-del-id"));
+                }
+            );
+        }
+        var current_total_html=
+            total_html.replace("{{price}}",total_price);
+        $("#item_list").append(current_total_html);
+    }
+    showlist();
+
+    $(".addbtn").click(
+        function(){
+            shoplist.list.push(
+                {
+                    name:$("#input_name").val(),
+                    price:$("#input_price").val()
+                }
+            );
+            $("#input_name").val("");
+            $("#input_price").val("");
+            showlist();
+    });
+
+    function remove_item(id){
+        shoplist.list.splice(id,1);
+        showlist();
+    }
+
+    
+
+
+
+</script>
+</body>
+</html>
